@@ -1,2 +1,2 @@
 # HookActivity
-HookActivity,无需在AndroidMainfests.xml中注册Activity也可以打开/跳转
+HookActivity,无需在AndroidManifests.xml中注册Activity也可以打开/跳转
