@@ -3,7 +3,7 @@ package com.example.hook.aidl
 import android.os.Binder
 import android.os.IBinder
 import android.os.Parcel
-import com.example.hook.aidl.IHook.CREATOR.createFromParcel
+import com.example.hook.aidl.Hook.CREATOR.createFromParcel
 
 abstract class HookManagerStub : Binder(), IHookManager {
 
@@ -51,7 +51,7 @@ abstract class HookManagerStub : Binder(), IHookManager {
             }
             TRANSACTION_getHooks -> {
                 data.enforceInterface(DESCRIPTOR)
-                val result: List<IHook> = getHooks()
+                val result: List<Hook> = getHooks()
                 reply?.writeNoException()
                 reply?.writeTypedList(result)
                 true

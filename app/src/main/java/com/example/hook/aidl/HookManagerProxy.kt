@@ -5,7 +5,7 @@ import android.os.Parcel
 
 class HookManagerProxy(private val mRemote: IBinder?) : IHookManager {
 
-    override fun addHook(hook: IHook) {
+    override fun addHook(hook: Hook) {
         val data = Parcel.obtain()
         val reply = Parcel.obtain()
         try {
@@ -20,15 +20,15 @@ class HookManagerProxy(private val mRemote: IBinder?) : IHookManager {
         }
     }
 
-    override fun getHooks(): ArrayList<IHook> {
+    override fun getHooks(): ArrayList<Hook> {
         val data = Parcel.obtain()
         val reply = Parcel.obtain()
-        val result: ArrayList<IHook>
+        val result: ArrayList<Hook>
         try {
             data.writeInterfaceToken(HookManagerStub.DESCRIPTOR)
             mRemote?.transact(HookManagerStub.TRANSACTION_getHooks, data, reply, 0)
             reply.readException()
-            result = reply.createTypedArrayList(IHook) ?: arrayListOf()
+            result = reply.createTypedArrayList(Hook) ?: arrayListOf()
         } finally {
             reply.recycle()
             data.recycle()

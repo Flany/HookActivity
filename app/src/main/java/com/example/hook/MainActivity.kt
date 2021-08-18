@@ -9,7 +9,7 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import com.example.hook.aidl.HookManagerStub
-import com.example.hook.aidl.IHook
+import com.example.hook.aidl.Hook
 import com.example.hook.aidl.IHookManager
 import com.example.hook.server.HookService
 import java.lang.Exception
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     fun addData(view: View) {
         try {
             hookManager?.addHook(
-                IHook(
+                Hook(
                     "IHook description ${System.currentTimeMillis()}",
                     System.currentTimeMillis().toInt()
                 )

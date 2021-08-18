@@ -3,7 +3,7 @@ package com.example.hook.aidl
 import android.os.Parcel
 import android.os.Parcelable
 
-data class IHook(val description: String, val type: Int) : Parcelable {
+data class Hook(val description: String, val type: Int) : Parcelable {
 
     constructor(parcel: Parcel) : this(parcel.readString() ?: "", parcel.readInt()) {
     }
@@ -17,12 +17,12 @@ data class IHook(val description: String, val type: Int) : Parcelable {
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<IHook> {
-        override fun createFromParcel(parcel: Parcel): IHook {
-            return IHook(parcel)
+    companion object CREATOR : Parcelable.Creator<Hook> {
+        override fun createFromParcel(parcel: Parcel): Hook {
+            return Hook(parcel)
         }
 
-        override fun newArray(size: Int): Array<IHook?> {
+        override fun newArray(size: Int): Array<Hook?> {
             return arrayOfNulls(size)
         }
     }

@@ -7,8 +7,8 @@ import kotlin.jvm.Throws
 interface IHookManager : IInterface {
 
     @Throws(RemoteException::class)
-    fun addHook(hook: IHook)
+    fun addHook(hook: Hook)
 
     @Throws(RemoteException::class)
-    fun getHooks(): ArrayList<IHook>
+    fun getHooks(): ArrayList<Hook>
 }
